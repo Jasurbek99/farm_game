@@ -30,7 +30,7 @@ class FarmMainScreen extends StatelessWidget {
             top: 20,
             left: 0,
             child: Image.asset(
-              AppAssets.cloud1,
+              AppAssets.cloudLeft,
               fit: BoxFit.none,
               alignment: Alignment.topLeft,
             ),
@@ -39,7 +39,7 @@ class FarmMainScreen extends StatelessWidget {
             top: 10,
             right: 0,
             child: Image.asset(
-              AppAssets.cloud2,
+              AppAssets.cloudRight,
               fit: BoxFit.none,
               alignment: Alignment.topRight,
             ),

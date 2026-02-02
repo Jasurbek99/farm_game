@@ -21,23 +21,28 @@ class ChickenBarnScreen extends StatelessWidget {
 
     return AppScaffold(
       backgroundColor: AppColors.farmBackground,
+      safeAreaTop: false,
+      safeAreaLeft: false,
+      safeAreaRight: false,
       body: Stack(
         children: [
           // Clouds
           Positioned(
-            top: AppDimens.paddingLg,
-            left: AppDimens.paddingLg,
+            top: 20,
+            left: 0,
             child: Image.asset(
-              AppAssets.cloud1,
-              width: AppDimens.iconXl * 2,
+              AppAssets.cloudLeft,
+              fit: BoxFit.none,
+              alignment: Alignment.topLeft,
             ),
           ),
           Positioned(
-            top: AppDimens.paddingXl,
-            right: AppDimens.paddingLg,
+            top: 10,
+            right: 0,
             child: Image.asset(
-              AppAssets.cloud2,
-              width: AppDimens.iconXl * 2,
+              AppAssets.cloudRight,
+              fit: BoxFit.none,
+              alignment: Alignment.topRight,
             ),
           ),
           // Content
