@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:farm_game/core/constants/app_colors.dart';
+import 'package:farm_game/core/constants/app_assets.dart';
 import 'package:farm_game/core/constants/app_dimens.dart';
 import 'package:farm_game/core/theme/app_text_styles.dart';
 
@@ -30,24 +30,29 @@ class BuildingCard extends StatelessWidget {
             fit: BoxFit.contain,
           ),
           const SizedBox(height: AppDimens.paddingSm),
-          // Label
-          Container(
-            padding: const EdgeInsets.symmetric(
-              horizontal: AppDimens.paddingMd,
-              vertical: AppDimens.paddingSm,
-            ),
-            decoration: BoxDecoration(
-              color: AppColors.panelBackground,
-              border: Border.all(
-                color: AppColors.panelBorder,
-                width: AppDimens.cardBorderWidth,
-              ),
-              borderRadius: BorderRadius.circular(AppDimens.radiusSm),
-            ),
-            child: Text(
-              label,
-              style: AppTextStyles.labelMedium,
-              textAlign: TextAlign.center,
+          // Label with decorative name card
+          SizedBox(
+            width: AppDimens.buildingCardWidth,
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                // Decorative name card background
+                SizedBox(
+                  width: 70,
+                  child: Image.asset(AppAssets.nameCard, fit: BoxFit.contain),
+                ),
+                // Label text on top
+                Padding(
+                  padding: const EdgeInsets.only(top: AppDimens.paddingSm),
+                  child: Text(
+                    label,
+                    style: AppTextStyles.labelverySmall,
+                    textAlign: TextAlign.center,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
+              ],
             ),
           ),
         ],

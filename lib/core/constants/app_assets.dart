@@ -2,15 +2,22 @@ class AppAssets {
   AppAssets._();
 
   // Backgrounds
-  static const String farmBackground = 'assets/images/backgrounds/farm_background.png';
-  static const String factoryBackground = 'assets/images/backgrounds/factory_background.png';
-  static const String storeBackground = 'assets/images/backgrounds/store_background.png';
-  static const String friendsBackground = 'assets/images/backgrounds/friends_background.png';
-  static const String profileBackground = 'assets/images/backgrounds/profile_background.png';
+  static const String farmBackground =
+      'assets/images/backgrounds/farm_background.png';
+  static const String factoryBackground =
+      'assets/images/backgrounds/factory_background.png';
+  static const String storeBackground =
+      'assets/images/backgrounds/store_background.png';
+  static const String friendsBackground =
+      'assets/images/backgrounds/friends_background.png';
+  static const String profileBackground =
+      'assets/images/backgrounds/profile_background.png';
 
   // Clouds
   static const String cloud1 = 'assets/images/decorations/cloud_1.png';
   static const String cloud2 = 'assets/images/decorations/cloud_2.png';
+  static const String cloudLeft = 'assets/images/decorations/cloud_left.png';
+  static const String cloudRight = 'assets/images/decorations/cloud_right.png';
 
   // Buildings - Farm
   static const String chickenBarn = 'assets/images/buildings/chicken_barn.png';
@@ -20,7 +27,8 @@ class AppAssets {
 
   // Buildings - Factory
   static const String cakeFactory = 'assets/images/buildings/cake_factory.png';
-  static const String cakeFactoryLarge = 'assets/images/buildings/cake_factory_large.png';
+  static const String cakeFactoryLarge =
+      'assets/images/buildings/cake_factory_large.png';
 
   // Animals
   static const String chicken = 'assets/images/animals/chicken.png';
@@ -39,11 +47,12 @@ class AppAssets {
   static const String grass = 'assets/images/decorations/grass.png';
   static const String tree = 'assets/images/decorations/tree.png';
   static const String bush = 'assets/images/decorations/bush.png';
+  static const String nameCard = 'assets/images/decorations/name_card.png';
 
   // UI Elements
   static const String farmName = 'assets/images/ui/farm_name.png';
   static const String coinIcon = 'assets/images/ui/coin_icon.png';
-  static const String energyIcon = 'assets/images/ui/energy_icon.png';
+  static const String energyIcon = 'assets/images/ui/plus_icon.png';
   static const String plusIcon = 'assets/images/ui/plus_icon.png';
 
   // Bottom Nav Icons
@@ -53,7 +62,8 @@ class AppAssets {
   static const String navFriends = 'assets/images/nav/nav_friends.png';
 
   // Profile
-  static const String avatarPlaceholder = 'assets/images/profile/avatar_placeholder.png';
+  static const String avatarPlaceholder =
+      'assets/images/profile/avatar_placeholder.png';
   static const String passwordIcon = 'assets/images/profile/password_icon.png';
   static const String languageIcon = 'assets/images/profile/language_icon.png';
   static const String supportIcon = 'assets/images/profile/support_icon.png';

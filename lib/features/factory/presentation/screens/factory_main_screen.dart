@@ -24,23 +24,28 @@ class FactoryMainScreen extends StatelessWidget {
 
     return AppScaffold(
       backgroundColor: AppColors.factoryBackground,
+      safeAreaTop: false,
+      safeAreaLeft: false,
+      safeAreaRight: false,
       body: Stack(
         children: [
           // Clouds
           Positioned(
-            top: AppDimens.cloudTopLeftTop,
-            left: AppDimens.cloudTopLeftLeft,
+            top: 20,
+            left: 0,
             child: Image.asset(
-              AppAssets.cloud1,
-              width: AppDimens.cloudTopLeftWidth,
+              AppAssets.cloudLeft,
+              fit: BoxFit.none,
+              alignment: Alignment.topLeft,
             ),
           ),
           Positioned(
-            top: AppDimens.cloudTopRightTop,
-            right: AppDimens.cloudTopRightRight,
+            top: 10,
+            right: 0,
             child: Image.asset(
-              AppAssets.cloud2,
-              width: AppDimens.cloudTopRightWidth,
+              AppAssets.cloudRight,
+              fit: BoxFit.none,
+              alignment: Alignment.topRight,
             ),
           ),
           // Content
@@ -48,10 +53,15 @@ class FactoryMainScreen extends StatelessWidget {
             children: [
               const SizedBox(height: AppDimens.paddingLg),
               // Title
-              Text(
-                AppStrings.welcomeToFactory,
-                style: AppTextStyles.titleLarge,
-                textAlign: TextAlign.center,
+              Align(
+                alignment: Alignment.center,
+                child: Text(
+                  AppStrings.welcomeToFactory,
+                  style: AppTextStyles.titleLarge.copyWith(
+                    color: AppColors.whiteTextColor,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
               ),
               const SizedBox(height: AppDimens.paddingLg),
               // Buildings

@@ -13,14 +13,14 @@ class AppStrings {
   // Farm
   static const String welcomeToFarm = 'WELCOME\nTO FARM';
   static const String welcomeFarmTitle = 'WELCOME TO';
-  static const String chickenBarn = 'CHICKEN BARN';
-  static const String sheepBarn = 'SHEEP BARN';
-  static const String cowBarn = 'COW BARN';
-  static const String pigBarn = 'PIG BARN';
+  static const String chickenBarn = 'CHICKEN \n BARN';
+  static const String sheepBarn = 'SHEEP\n BARN';
+  static const String cowBarn = 'COW\n BARN';
+  static const String pigBarn = 'PIG\n BARN';
 
   // Factory
   static const String welcomeToFactory = 'WELCOME\nTO FACTORY';
-  static const String cakeFactory = 'CAKE FACTORY';
+  static const String cakeFactory = 'CAKE\n FACTORY';
   static const String makeCake = 'MAKE CAKE';
 
   // Store

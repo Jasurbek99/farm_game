@@ -6,17 +6,10 @@ class AppTextStyles {
 
   // Title styles
   static const TextStyle titleLarge = TextStyle(
-    fontSize: 48.0,
+    fontSize: 40.0,
     fontWeight: FontWeight.w900,
     color: AppColors.textWhite,
-    fontFamily: 'ComicSans',
-    shadows: [
-      Shadow(
-        offset: Offset(3.0, 3.0),
-        blurRadius: 4.0,
-        color: AppColors.black,
-      ),
-    ],
+    fontFamily: 'Digitalt',
   );
 
   static const TextStyle titleMedium = TextStyle(
@@ -25,11 +18,7 @@ class AppTextStyles {
     color: AppColors.textWhite,
     fontFamily: 'ComicSans',
     shadows: [
-      Shadow(
-        offset: Offset(2.0, 2.0),
-        blurRadius: 3.0,
-        color: AppColors.black,
-      ),
+      Shadow(offset: Offset(2.0, 2.0), blurRadius: 3.0, color: AppColors.black),
     ],
   );
 
@@ -104,5 +93,11 @@ class AppTextStyles {
     fontWeight: FontWeight.w600,
     color: AppColors.textSecondary,
     fontFamily: 'ComicSans',
+  );
+  static const TextStyle labelverySmall = TextStyle(
+    fontSize: 12.0,
+    fontWeight: FontWeight.bold,
+    color: AppColors.textSecondary,
+    fontFamily: 'Digitalt',
   );
 }

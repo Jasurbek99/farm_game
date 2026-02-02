@@ -4,7 +4,7 @@ class AppColors {
   AppColors._();
 
   // Primary colors
-  static const Color primary = Color(0xFF6B8E23);
+  static const Color primary = Color(0xFF99A930);
   static const Color primaryLight = Color(0xFF9ACD32);
   static const Color primaryDark = Color(0xFF556B2F);
 
@@ -14,6 +14,8 @@ class AppColors {
   static const Color storeBackground = Color(0xFFB8AA5C);
   static const Color friendsBackground = Color(0xFFB8AA5C);
   static const Color profileBackground = Color(0xFFE8D4A0);
+
+  static const Color whiteTextColor = Color(0xFFF1E5CD);
 
   // Panel colors
   static const Color panelBorder = Color(0xFF8B4513);

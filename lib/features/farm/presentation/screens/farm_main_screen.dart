@@ -20,31 +20,29 @@ class FarmMainScreen extends StatelessWidget {
     return AppScaffold(
       backgroundColor: AppColors.farmBackground,
       backgroundAsset: AppAssets.farmBackground,
+      safeAreaTop: false,
       safeAreaLeft: false,
       safeAreaRight: false,
       body: Stack(
         children: [
           // Clouds
-          // Positioned(
-          //   top: 20,
-          //   width: MediaQuery.of(context).size.width,
-          //   child: Image.asset(
-          //     AppAssets.farmBackground,
-          //     fit: BoxFit.cover,
-          //     width: MediaQuery.of(context).size.width * 0.8,
-          //     height: MediaQuery.of(context).size.height * 0.8,
-          //     //width: AppDimens.iconXl * 2,
-          //   ),
-          // ),
           Positioned(
-            top: AppDimens.paddingLg,
+            top: 20,
             left: 0,
-            child: Image.asset(AppAssets.cloud1, width: AppDimens.iconXl * 2),
+            child: Image.asset(
+              AppAssets.cloud1,
+              fit: BoxFit.none,
+              alignment: Alignment.topLeft,
+            ),
           ),
           Positioned(
-            top: AppDimens.paddingXl,
+            top: 10,
             right: 0,
-            child: Image.asset(AppAssets.cloud2, width: AppDimens.iconXl * 2),
+            child: Image.asset(
+              AppAssets.cloud2,
+              fit: BoxFit.none,
+              alignment: Alignment.topRight,
+            ),
           ),
           // Profile button
           Positioned(
@@ -84,7 +82,7 @@ class FarmMainScreen extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      AppStrings.welcomeFarmTitle,
+                      AppStrings.welcomeToFarm,
                       style: AppTextStyles.titleLarge.copyWith(
                         color: AppColors.primary,
                         fontSize: 30,
@@ -92,15 +90,6 @@ class FarmMainScreen extends StatelessWidget {
                       textAlign: TextAlign.center,
                     ),
                     const SizedBox(height: AppDimens.paddingSm),
-                    Semantics(
-                      label: AppStrings.welcomeToFarm,
-                      image: true,
-                      child: Image.asset(
-                        AppAssets.farmName,
-                        width: AppDimens.iconXl * 2,
-                        fit: BoxFit.contain,
-                      ),
-                    ),
                   ],
                 ),
               ),

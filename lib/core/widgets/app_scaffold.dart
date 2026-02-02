@@ -39,17 +39,10 @@ class AppScaffold extends StatelessWidget {
             // Background
             if (backgroundAsset != null)
               Positioned.fill(
-                child: Image.asset(
-                  backgroundAsset!,
-                  fit: BoxFit.cover,
-                ),
+                child: Image.asset(backgroundAsset!, fit: BoxFit.cover),
               )
             else if (backgroundColor != null)
-              Positioned.fill(
-                child: Container(
-                  color: backgroundColor,
-                ),
-              ),
+              Positioned.fill(child: Container(color: backgroundColor)),
             // Content
             Positioned.fill(
               child: Column(
