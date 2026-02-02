@@ -9,7 +9,7 @@ class AppColors {
   static const Color primaryDark = Color(0xFF556B2F);
 
   // Background colors
-  static const Color farmBackground = Color(0xFFE8D4A0);
+  static const Color farmBackground = Color(0xFFF1E5CD);
   static const Color factoryBackground = Color(0xFFB8AA5C);
   static const Color storeBackground = Color(0xFFB8AA5C);
   static const Color friendsBackground = Color(0xFFB8AA5C);

@@ -41,6 +41,7 @@ class AppAssets {
   static const String bush = 'assets/images/decorations/bush.png';
 
   // UI Elements
+  static const String farmName = 'assets/images/ui/farm_name.png';
   static const String coinIcon = 'assets/images/ui/coin_icon.png';
   static const String energyIcon = 'assets/images/ui/energy_icon.png';
   static const String plusIcon = 'assets/images/ui/plus_icon.png';

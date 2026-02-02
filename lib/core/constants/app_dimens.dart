@@ -5,8 +5,16 @@ class AppDimens {
   static const double paddingXs = 4.0;
   static const double paddingSm = 8.0;
   static const double paddingMd = 16.0;
-  static const double paddingLg = 24.0;
+  static const double paddingLg = 0.0;
   static const double paddingXl = 32.0;
+
+  // Cloud decoration offsets
+  static const double cloudTopLeftTop = 24.0;
+  static const double cloudTopLeftLeft = 0.0;
+  static const double cloudTopLeftWidth = 265.0;
+  static const double cloudTopRightTop = 52.0;
+  static const double cloudTopRightRight = 0.0;
+  static const double cloudTopRightWidth = 255.0;
 
   // Border radius
   static const double radiusXs = 4.0;

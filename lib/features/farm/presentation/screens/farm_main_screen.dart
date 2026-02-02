@@ -19,24 +19,32 @@ class FarmMainScreen extends StatelessWidget {
 
     return AppScaffold(
       backgroundColor: AppColors.farmBackground,
+      backgroundAsset: AppAssets.farmBackground,
+      safeAreaLeft: false,
+      safeAreaRight: false,
       body: Stack(
         children: [
           // Clouds
+          // Positioned(
+          //   top: 20,
+          //   width: MediaQuery.of(context).size.width,
+          //   child: Image.asset(
+          //     AppAssets.farmBackground,
+          //     fit: BoxFit.cover,
+          //     width: MediaQuery.of(context).size.width * 0.8,
+          //     height: MediaQuery.of(context).size.height * 0.8,
+          //     //width: AppDimens.iconXl * 2,
+          //   ),
+          // ),
           Positioned(
             top: AppDimens.paddingLg,
-            left: AppDimens.paddingLg,
-            child: Image.asset(
-              AppAssets.cloud1,
-              width: AppDimens.iconXl * 2,
-            ),
+            left: 0,
+            child: Image.asset(AppAssets.cloud1, width: AppDimens.iconXl * 2),
           ),
           Positioned(
             top: AppDimens.paddingXl,
-            right: AppDimens.paddingLg,
-            child: Image.asset(
-              AppAssets.cloud2,
-              width: AppDimens.iconXl * 2,
-            ),
+            right: 0,
+            child: Image.asset(AppAssets.cloud2, width: AppDimens.iconXl * 2),
           ),
           // Profile button
           Positioned(
@@ -71,12 +79,30 @@ class FarmMainScreen extends StatelessWidget {
             children: [
               const SizedBox(height: AppDimens.paddingLg),
               // Title
-              Text(
-                AppStrings.welcomeToFarm,
-                style: AppTextStyles.titleLarge.copyWith(
-                  color: AppColors.primary,
+              Center(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      AppStrings.welcomeFarmTitle,
+                      style: AppTextStyles.titleLarge.copyWith(
+                        color: AppColors.primary,
+                        fontSize: 30,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: AppDimens.paddingSm),
+                    Semantics(
+                      label: AppStrings.welcomeToFarm,
+                      image: true,
+                      child: Image.asset(
+                        AppAssets.farmName,
+                        width: AppDimens.iconXl * 2,
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ],
                 ),
-                textAlign: TextAlign.center,
               ),
               const SizedBox(height: AppDimens.paddingLg),
               // Buildings

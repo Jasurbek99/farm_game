@@ -28,19 +28,19 @@ class FactoryMainScreen extends StatelessWidget {
         children: [
           // Clouds
           Positioned(
-            top: AppDimens.paddingLg,
-            left: AppDimens.paddingLg,
+            top: AppDimens.cloudTopLeftTop,
+            left: AppDimens.cloudTopLeftLeft,
             child: Image.asset(
               AppAssets.cloud1,
-              width: AppDimens.iconXl * 2,
+              width: AppDimens.cloudTopLeftWidth,
             ),
           ),
           Positioned(
-            top: AppDimens.paddingXl,
-            right: AppDimens.paddingLg,
+            top: AppDimens.cloudTopRightTop,
+            right: AppDimens.cloudTopRightRight,
             child: Image.asset(
               AppAssets.cloud2,
-              width: AppDimens.iconXl * 2,
+              width: AppDimens.cloudTopRightWidth,
             ),
           ),
           // Content

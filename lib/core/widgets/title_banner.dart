@@ -7,11 +7,7 @@ class TitleBanner extends StatelessWidget {
   final String title;
   final TextStyle? textStyle;
 
-  const TitleBanner({
-    super.key,
-    required this.title,
-    this.textStyle,
-  });
+  const TitleBanner({super.key, required this.title, this.textStyle});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +17,7 @@ class TitleBanner extends StatelessWidget {
         vertical: AppDimens.paddingMd,
       ),
       decoration: BoxDecoration(
-        color: AppColors.panelBrown,
+        color: AppColors.panelBorder,
         border: Border.all(
           color: AppColors.panelBorder,
           width: AppDimens.cardBorderWidth,

@@ -12,6 +12,7 @@ class AppStrings {
 
   // Farm
   static const String welcomeToFarm = 'WELCOME\nTO FARM';
+  static const String welcomeFarmTitle = 'WELCOME TO';
   static const String chickenBarn = 'CHICKEN BARN';
   static const String sheepBarn = 'SHEEP BARN';
   static const String cowBarn = 'COW BARN';
