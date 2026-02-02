@@ -53,4 +53,11 @@ class AppDimens {
   // Building card
   static const double buildingCardWidth = 160.0;
   static const double buildingCardHeight = 200.0;
+
+  // Profile screen
+  static const double profileBalanceTitleTop = 8.0;
+  static const double profileBalanceContentTopPadding = 28.0;
+
+  // Toggles
+  static const double toggleSwitchWidth = 100.0;
 }

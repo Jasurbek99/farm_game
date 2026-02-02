@@ -33,7 +33,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         padding: const EdgeInsets.all(AppDimens.paddingMd),
         child: Column(
           children: [
-            const SizedBox(height: AppDimens.paddingLg),
+            const SizedBox(height: AppDimens.paddingXs),
             // Title
             Text(
               AppStrings.profile,
@@ -42,74 +42,92 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
               textAlign: TextAlign.center,
             ),
-            const SizedBox(height: AppDimens.paddingLg),
+            const SizedBox(height: AppDimens.paddingXs),
             // Avatar and user info
             Row(
               children: [
-                Container(
-                  width: AppDimens.iconXl * 2,
-                  height: AppDimens.iconXl * 2,
-                  decoration: BoxDecoration(
-                    color: AppColors.white,
-                    border: Border.all(
-                      color: AppColors.panelBorder,
-                      width: AppDimens.cardBorderWidth,
+                Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Image.asset(
+                      AppAssets.profileIconCard,
+                      width: AppDimens.iconXl,
+                      height: AppDimens.iconXl,
+                      fit: BoxFit.contain,
                     ),
-                    borderRadius: BorderRadius.circular(AppDimens.radiusMd),
-                  ),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(AppDimens.radiusMd),
-                    child: Image.asset(profile.avatarAsset, fit: BoxFit.cover),
-                  ),
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(AppDimens.radiusMd),
+                      child: Image.asset(
+                        profile.avatarAsset,
+                        width: AppDimens.iconLg,
+                        height: AppDimens.iconLg,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ],
                 ),
                 const SizedBox(width: AppDimens.paddingMd),
                 Expanded(
-                  child: Container(
-                    padding: const EdgeInsets.all(AppDimens.paddingMd),
-                    decoration: BoxDecoration(
-                      color: AppColors.panelBackground,
-                      border: Border.all(
-                        color: AppColors.panelBorder,
-                        width: AppDimens.cardBorderWidth,
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Image.asset(
+                        AppAssets.profileNameCard,
+                        fit: BoxFit.contain,
+                        width: double.infinity,
                       ),
-                      borderRadius: BorderRadius.circular(AppDimens.radiusMd),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(profile.name, style: AppTextStyles.bodyLarge),
-                        const SizedBox(height: AppDimens.paddingXs),
-                        Text(
-                          '${AppStrings.id} ${profile.userId}',
-                          style: AppTextStyles.bodyMedium,
+                      Padding(
+                        padding: const EdgeInsets.all(AppDimens.paddingMd),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              profile.name,
+                              style: AppTextStyles.bodyLarge.copyWith(
+                                color: AppColors.textSecondary,
+                              ),
+                            ),
+                            const SizedBox(height: AppDimens.paddingXs),
+                            Text(
+                              '${AppStrings.id} ${profile.userId}',
+                              style: AppTextStyles.bodyMedium.copyWith(
+                                color: AppColors.textSecondary,
+                              ),
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
               ],
             ),
-            const SizedBox(height: AppDimens.paddingLg),
+            const SizedBox(height: AppDimens.paddingMd),
             // Balance with decorative card
             Stack(
               alignment: Alignment.center,
               children: [
                 // Decorative balance card background
                 Image.asset(AppAssets.balanceCard, fit: BoxFit.contain),
+                Positioned(
+                  top: AppDimens.profileBalanceTitleTop,
+                  child: Text(
+                    AppStrings.balance,
+                    style: AppTextStyles.bodyLarge.copyWith(
+                      color: AppColors.white,
+                    ),
+                  ),
+                ),
                 // Balance content
                 Padding(
                   padding: const EdgeInsets.all(AppDimens.paddingMd),
                   child: Column(
                     children: [
-                      Text(
-                        AppStrings.balance,
-                        style: AppTextStyles.titleSmall.copyWith(
-                          color: AppColors.textSecondary,
-                        ),
+                      const SizedBox(
+                        height: AppDimens.profileBalanceContentTopPadding,
                       ),
-                      const SizedBox(height: AppDimens.paddingSm),
                       Container(
-                        padding: const EdgeInsets.all(AppDimens.paddingMd),
+                        padding: const EdgeInsets.all(AppDimens.paddingXs),
                         margin: const EdgeInsets.symmetric(
                           horizontal: AppDimens.paddingXl,
                         ),
@@ -132,7 +150,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 const SizedBox(width: AppDimens.paddingSm),
                                 Text(
                                   profile.balance.toStringAsFixed(2),
-                                  style: AppTextStyles.titleSmall,
+                                  style: AppTextStyles.titleSmall.copyWith(
+                                    color: AppColors.textWhite,
+                                  ),
                                 ),
                               ],
                             ),
@@ -157,34 +177,51 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
               ],
             ),
-            const SizedBox(height: AppDimens.paddingLg),
-            // Settings buttons
-            ProfileButton(
-              label: AppStrings.changePassword,
-              iconAsset: AppAssets.passwordIcon,
-              onTap: () {
-                Navigator.pushNamed(context, '/profile/change-password');
-              },
-            ),
-            const SizedBox(height: AppDimens.paddingMd),
-            ProfileButton(
-              label: AppStrings.language,
-              iconAsset: AppAssets.languageIcon,
-              onTap: () {
-                Navigator.pushNamed(context, '/profile/language');
-              },
-            ),
-            const SizedBox(height: AppDimens.paddingMd),
-            ProfileButton(
-              label: AppStrings.support,
-              iconAsset: AppAssets.supportIcon,
-              onTap: () {},
-            ),
-            const SizedBox(height: AppDimens.paddingMd),
-            ProfileButton(
-              label: AppStrings.privacyPolicy,
-              iconAsset: AppAssets.privacyIcon,
-              onTap: () {},
+            const SizedBox(height: AppDimens.paddingXs),
+            // Settings buttons with card background
+            Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: AppDimens.paddingLg,
+                    vertical: AppDimens.paddingMd,
+                  ),
+                  child: Column(
+                    children: [
+                      ProfileButton(
+                        label: AppStrings.changePassword,
+                        iconAsset: AppAssets.passwordIcon,
+                        onTap: () {
+                          Navigator.pushNamed(
+                            context,
+                            '/profile/change-password',
+                          );
+                        },
+                      ),
+                      const SizedBox(height: AppDimens.paddingMd),
+                      ProfileButton(
+                        label: AppStrings.language,
+                        iconAsset: AppAssets.languageIcon,
+                        onTap: () {
+                          Navigator.pushNamed(context, '/profile/language');
+                        },
+                      ),
+                      const SizedBox(height: AppDimens.paddingMd),
+                      ProfileButton(
+                        label: AppStrings.support,
+                        iconAsset: AppAssets.supportIcon,
+                        onTap: () {},
+                      ),
+                      const SizedBox(height: AppDimens.paddingMd),
+                      ProfileButton(
+                        label: AppStrings.privacyPolicy,
+                        iconAsset: AppAssets.privacyIcon,
+                        onTap: () {},
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
             const SizedBox(height: AppDimens.paddingLg),
             // Toggle switches

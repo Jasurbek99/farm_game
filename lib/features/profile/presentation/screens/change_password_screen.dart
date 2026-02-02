@@ -75,7 +75,7 @@ class _PasswordField extends StatelessWidget {
         decoration: InputDecoration(
           hintText: label,
           hintStyle: AppTextStyles.bodyMedium.copyWith(
-            color: AppColors.textSecondary.withOpacity(0.5),
+            color: AppColors.textSecondary.withValues(alpha: 0.5),
           ),
           border: InputBorder.none,
         ),

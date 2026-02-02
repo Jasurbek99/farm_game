@@ -13,7 +13,7 @@ class AppColors {
   static const Color factoryBackground = Color(0xFFB8AA5C);
   static const Color storeBackground = Color(0xFFB8AA5C);
   static const Color friendsBackground = Color(0xFFB8AA5C);
-  static const Color profileBackground = Color(0xFFE8D4A0);
+  static const Color profileBackground = Color(0xFFF1E5CD);
 
   static const Color whiteTextColor = Color(0xFFF1E5CD);
 
@@ -28,10 +28,11 @@ class AppColors {
   static const Color buttonBrown = Color(0xFF8B4513);
   static const Color buttonOrange = Color(0xFFFF8C00);
   static const Color buttonRed = Color(0xFFDC143C);
+  static const Color toggleTrackOff = Color(0xFF9E9E9E);
 
   // Text colors
   static const Color textPrimary = Color(0xFF4A3728);
-  static const Color textSecondary = Color(0xFF8B4513);
+  static const Color textSecondary = Color(0xFFC16F38);
   static const Color textWhite = Color(0xFFFFFFFF);
   static const Color textLight = Color(0xFFFFF8DC);
 

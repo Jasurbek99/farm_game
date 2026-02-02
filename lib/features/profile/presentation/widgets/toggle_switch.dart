@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:farm_game/core/constants/app_colors.dart';
 import 'package:farm_game/core/constants/app_dimens.dart';
+import 'package:farm_game/core/constants/app_strings.dart';
 import 'package:farm_game/core/theme/app_text_styles.dart';
 
 class ToggleSwitch extends StatelessWidget {
@@ -17,21 +18,22 @@ class ToggleSwitch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double trackHeight = AppDimens.buttonHeightSmall;
+    final double knobPadding = AppDimens.paddingXs;
+    final double knobDiameter = trackHeight - (knobPadding * 2);
+
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Text(
-          label,
-          style: AppTextStyles.labelMedium,
-        ),
+        Text(label, style: AppTextStyles.labelMedium),
         const SizedBox(height: AppDimens.paddingSm),
         GestureDetector(
           onTap: () => onChanged(!value),
           child: Container(
-            width: 100,
-            height: AppDimens.buttonHeightSmall,
+            width: AppDimens.toggleSwitchWidth,
+            height: trackHeight,
             decoration: BoxDecoration(
-              color: value ? AppColors.buttonGreen : Colors.grey,
+              color: value ? AppColors.buttonGreen : AppColors.toggleTrackOff,
               borderRadius: BorderRadius.circular(AppDimens.radiusPill),
             ),
             child: Stack(
@@ -42,7 +44,7 @@ class ToggleSwitch extends StatelessWidget {
                     Expanded(
                       child: Center(
                         child: Text(
-                          'ON',
+                          AppStrings.on,
                           style: AppTextStyles.buttonSmall,
                         ),
                       ),
@@ -50,7 +52,7 @@ class ToggleSwitch extends StatelessWidget {
                     Expanded(
                       child: Center(
                         child: Text(
-                          'OFF',
+                          AppStrings.off,
                           style: AppTextStyles.buttonSmall,
                         ),
                       ),
@@ -58,16 +60,23 @@ class ToggleSwitch extends StatelessWidget {
                   ],
                 ),
                 // Toggle circle
-                AnimatedAlign(
-                  duration: const Duration(milliseconds: 200),
-                  alignment: value ? Alignment.centerLeft : Alignment.centerRight,
-                  child: Container(
-                    width: 50,
-                    height: AppDimens.buttonHeightSmall - AppDimens.paddingXs,
-                    margin: const EdgeInsets.all(AppDimens.paddingXs),
-                    decoration: const BoxDecoration(
-                      color: AppColors.buttonYellow,
-                      shape: BoxShape.circle,
+                Padding(
+                  padding: const EdgeInsets.all(AppDimens.paddingXs),
+                  child: AnimatedAlign(
+                    duration: const Duration(milliseconds: 200),
+                    curve: Curves.easeInOut,
+                    alignment: value
+                        ? Alignment.centerLeft
+                        : Alignment.centerRight,
+                    child: SizedBox(
+                      width: knobDiameter,
+                      height: knobDiameter,
+                      child: const DecoratedBox(
+                        decoration: BoxDecoration(
+                          color: AppColors.buttonYellow,
+                          shape: BoxShape.circle,
+                        ),
+                      ),
                     ),
                   ),
                 ),

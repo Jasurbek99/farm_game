@@ -7,7 +7,7 @@ class AppTextStyles {
   // Title styles
   static const TextStyle titleLarge = TextStyle(
     fontSize: 40.0,
-    fontWeight: FontWeight.w900,
+    //fontWeight: FontWeight.w900,
     color: AppColors.textWhite,
     fontFamily: 'Digitalt',
   );
@@ -24,7 +24,7 @@ class AppTextStyles {
 
   static const TextStyle titleSmall = TextStyle(
     fontSize: 24.0,
-    fontWeight: FontWeight.w800,
+
     color: AppColors.textPrimary,
     fontFamily: 'Digitalt',
   );
@@ -54,8 +54,7 @@ class AppTextStyles {
   // Body styles
   static const TextStyle bodyLarge = TextStyle(
     fontSize: 20.0,
-    fontWeight: FontWeight.w600,
-    color: AppColors.textPrimary,
+    color: AppColors.textSecondary,
     fontFamily: 'Digitalt',
   );
 

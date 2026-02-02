@@ -11,6 +11,11 @@ import 'package:farm_game/features/navigation/nav_tab.dart';
 class BottomNavBar extends StatelessWidget {
   const BottomNavBar({super.key});
 
+  void _switchTab(BuildContext context, NavProvider navProvider, NavTab tab) {
+    Navigator.of(context).popUntil((route) => route.isFirst);
+    navProvider.setTab(tab);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Consumer<NavProvider>(
@@ -27,25 +32,25 @@ class BottomNavBar extends StatelessWidget {
                 asset: AppAssets.navFarm,
                 label: AppStrings.navFarm,
                 isSelected: navProvider.currentTab == NavTab.farm,
-                onTap: () => navProvider.setTab(NavTab.farm),
+                onTap: () => _switchTab(context, navProvider, NavTab.farm),
               ),
               _NavItem(
                 asset: AppAssets.navFactory,
                 label: AppStrings.navFactory,
                 isSelected: navProvider.currentTab == NavTab.factory,
-                onTap: () => navProvider.setTab(NavTab.factory),
+                onTap: () => _switchTab(context, navProvider, NavTab.factory),
               ),
               _NavItem(
                 asset: AppAssets.navStore,
                 label: AppStrings.navStore,
                 isSelected: navProvider.currentTab == NavTab.store,
-                onTap: () => navProvider.setTab(NavTab.store),
+                onTap: () => _switchTab(context, navProvider, NavTab.store),
               ),
               _NavItem(
                 asset: AppAssets.navFriends,
                 label: AppStrings.navFriends,
                 isSelected: navProvider.currentTab == NavTab.friends,
-                onTap: () => navProvider.setTab(NavTab.friends),
+                onTap: () => _switchTab(context, navProvider, NavTab.friends),
               ),
             ],
           ),
