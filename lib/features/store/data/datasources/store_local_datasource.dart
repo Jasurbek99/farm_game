@@ -10,7 +10,7 @@ class StoreLocalDatasource {
         name: AppStrings.egg,
         asset: AppAssets.egg,
         price: 500,
-        category: AppStrings.animal,
+        category: AppStrings.product,
       ),
       StoreItem(
         id: 'meat',
@@ -24,7 +24,7 @@ class StoreLocalDatasource {
         name: AppStrings.silk,
         asset: AppAssets.silk,
         price: 500,
-        category: AppStrings.animal,
+        category: AppStrings.product,
       ),
       StoreItem(
         id: 'meat2',
@@ -32,6 +32,35 @@ class StoreLocalDatasource {
         asset: AppAssets.meat,
         price: 500,
         category: AppStrings.product,
+      ),
+      StoreItem(
+        id: 'chicken',
+        name: AppStrings.chicken,
+        asset: AppAssets.chicken,
+        price: 500,
+        category: AppStrings.animal,
+      ),
+
+      StoreItem(
+        id: 'cow',
+        name: AppStrings.cow,
+        asset: AppAssets.cow,
+        price: 500,
+        category: AppStrings.animal,
+      ),
+      StoreItem(
+        id: 'pig',
+        name: AppStrings.pig,
+        asset: AppAssets.pig,
+        price: 500,
+        category: AppStrings.animal,
+      ),
+      StoreItem(
+        id: 'sheep',
+        name: AppStrings.sheep,
+        asset: AppAssets.sheep,
+        price: 500,
+        category: AppStrings.animal,
       ),
     ];
   }

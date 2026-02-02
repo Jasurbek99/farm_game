@@ -59,10 +59,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(AppDimens.radiusMd),
-                    child: Image.asset(
-                      profile.avatarAsset,
-                      fit: BoxFit.cover,
-                    ),
+                    child: Image.asset(profile.avatarAsset, fit: BoxFit.cover),
                   ),
                 ),
                 const SizedBox(width: AppDimens.paddingMd),
@@ -80,10 +77,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          profile.name,
-                          style: AppTextStyles.bodyLarge,
-                        ),
+                        Text(profile.name, style: AppTextStyles.bodyLarge),
                         const SizedBox(height: AppDimens.paddingXs),
                         Text(
                           '${AppStrings.id} ${profile.userId}',
@@ -96,67 +90,72 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ],
             ),
             const SizedBox(height: AppDimens.paddingLg),
-            // Balance
-            Container(
-              padding: const EdgeInsets.all(AppDimens.paddingMd),
-              decoration: BoxDecoration(
-                color: AppColors.panelDark,
-                border: Border.all(
-                  color: AppColors.panelBorder,
-                  width: AppDimens.cardBorderWidth,
-                ),
-                borderRadius: BorderRadius.circular(AppDimens.radiusMd),
-              ),
-              child: Column(
-                children: [
-                  Text(
-                    AppStrings.balance,
-                    style: AppTextStyles.titleSmall.copyWith(
-                      color: AppColors.textWhite,
-                    ),
-                  ),
-                  const SizedBox(height: AppDimens.paddingSm),
-                  Container(
-                    padding: const EdgeInsets.all(AppDimens.paddingMd),
-                    decoration: BoxDecoration(
-                      color: AppColors.panelBackground,
-                      borderRadius: BorderRadius.circular(AppDimens.radiusPill),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
+            // Balance with decorative card
+            Stack(
+              alignment: Alignment.center,
+              children: [
+                // Decorative balance card background
+                Image.asset(AppAssets.balanceCard, fit: BoxFit.contain),
+                // Balance content
+                Padding(
+                  padding: const EdgeInsets.all(AppDimens.paddingMd),
+                  child: Column(
+                    children: [
+                      Text(
+                        AppStrings.balance,
+                        style: AppTextStyles.titleSmall.copyWith(
+                          color: AppColors.textSecondary,
+                        ),
+                      ),
+                      const SizedBox(height: AppDimens.paddingSm),
+                      Container(
+                        padding: const EdgeInsets.all(AppDimens.paddingMd),
+                        margin: const EdgeInsets.symmetric(
+                          horizontal: AppDimens.paddingXl,
+                        ),
+                        decoration: BoxDecoration(
+                          color: AppColors.panelDark,
+                          borderRadius: BorderRadius.circular(
+                            AppDimens.radiusPill,
+                          ),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Image.asset(
-                              AppAssets.coinIcon,
+                            Row(
+                              children: [
+                                Image.asset(
+                                  AppAssets.coinIcon,
+                                  width: AppDimens.iconMd,
+                                  height: AppDimens.iconMd,
+                                ),
+                                const SizedBox(width: AppDimens.paddingSm),
+                                Text(
+                                  profile.balance.toStringAsFixed(2),
+                                  style: AppTextStyles.titleSmall,
+                                ),
+                              ],
+                            ),
+                            Container(
                               width: AppDimens.iconMd,
                               height: AppDimens.iconMd,
-                            ),
-                            const SizedBox(width: AppDimens.paddingSm),
-                            Text(
-                              profile.balance.toStringAsFixed(2),
-                              style: AppTextStyles.titleSmall,
+                              decoration: const BoxDecoration(
+                                color: AppColors.buttonGreen,
+                                shape: BoxShape.circle,
+                              ),
+                              child: const Icon(
+                                Icons.add,
+                                color: AppColors.textWhite,
+                                size: AppDimens.iconSm,
+                              ),
                             ),
                           ],
                         ),
-                        Container(
-                          width: AppDimens.iconMd,
-                          height: AppDimens.iconMd,
-                          decoration: const BoxDecoration(
-                            color: AppColors.buttonGreen,
-                            shape: BoxShape.circle,
-                          ),
-                          child: const Icon(
-                            Icons.add,
-                            color: AppColors.textWhite,
-                            size: AppDimens.iconSm,
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
             const SizedBox(height: AppDimens.paddingLg),
             // Settings buttons

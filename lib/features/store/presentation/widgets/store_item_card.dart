@@ -47,7 +47,7 @@ class StoreItemCard extends StatelessWidget {
               ),
             ),
             Text(
-              item.name,
+              item.name.toUpperCase(),
               style: AppTextStyles.labelMedium,
             ),
             const SizedBox(height: AppDimens.paddingSm),

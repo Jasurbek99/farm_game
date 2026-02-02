@@ -11,4 +11,39 @@ class FriendsLocalDatasource {
       ),
     ];
   }
+
+  List<Friend> getSuggestedFriends() {
+    return const [
+      Friend(
+        id: '101',
+        name: 'DRESSIK SADJUN',
+        avatarAsset: AppAssets.avatarPlaceholder,
+      ),
+      Friend(
+        id: '102',
+        name: 'DRESSIK SADJUN',
+        avatarAsset: AppAssets.avatarPlaceholder,
+      ),
+      Friend(
+        id: '103',
+        name: 'DRESSIK SADJUN',
+        avatarAsset: AppAssets.avatarPlaceholder,
+      ),
+      Friend(
+        id: '104',
+        name: 'DRESSIK SADJUN',
+        avatarAsset: AppAssets.avatarPlaceholder,
+      ),
+      Friend(
+        id: '105',
+        name: 'DRESSIK SADJUN',
+        avatarAsset: AppAssets.avatarPlaceholder,
+      ),
+      Friend(
+        id: '106',
+        name: 'DRESSIK SADJUN',
+        avatarAsset: AppAssets.avatarPlaceholder,
+      ),
+    ];
+  }
 }

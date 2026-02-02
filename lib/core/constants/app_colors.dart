@@ -20,13 +20,14 @@ class AppColors {
   // Panel colors
   static const Color panelBorder = Color(0xFF8B4513);
   static const Color panelBackground = Color(0xFFFFF8DC);
-  static const Color panelDark = Color(0xFFD2691E);
+  static const Color panelDark = Color(0xFFC16F38);
 
   // Button colors
   static const Color buttonGreen = Color(0xFF32CD32);
   static const Color buttonYellow = Color(0xFFFFD700);
   static const Color buttonBrown = Color(0xFF8B4513);
   static const Color buttonOrange = Color(0xFFFF8C00);
+  static const Color buttonRed = Color(0xFFDC143C);
 
   // Text colors
   static const Color textPrimary = Color(0xFF4A3728);

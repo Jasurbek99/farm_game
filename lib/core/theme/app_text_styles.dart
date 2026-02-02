@@ -16,7 +16,7 @@ class AppTextStyles {
     fontSize: 32.0,
     fontWeight: FontWeight.w900,
     color: AppColors.textWhite,
-    fontFamily: 'ComicSans',
+    fontFamily: 'Digitalt',
     shadows: [
       Shadow(offset: Offset(2.0, 2.0), blurRadius: 3.0, color: AppColors.black),
     ],
@@ -26,7 +26,7 @@ class AppTextStyles {
     fontSize: 24.0,
     fontWeight: FontWeight.w800,
     color: AppColors.textPrimary,
-    fontFamily: 'ComicSans',
+    fontFamily: 'Digitalt',
   );
 
   // Button styles
@@ -34,21 +34,21 @@ class AppTextStyles {
     fontSize: 24.0,
     fontWeight: FontWeight.w900,
     color: AppColors.textWhite,
-    fontFamily: 'ComicSans',
+    fontFamily: 'Digitalt',
   );
 
   static const TextStyle buttonMedium = TextStyle(
     fontSize: 18.0,
     fontWeight: FontWeight.w800,
     color: AppColors.textWhite,
-    fontFamily: 'ComicSans',
+    fontFamily: 'Digitalt',
   );
 
   static const TextStyle buttonSmall = TextStyle(
     fontSize: 14.0,
     fontWeight: FontWeight.w700,
     color: AppColors.textWhite,
-    fontFamily: 'ComicSans',
+    fontFamily: 'Digitalt',
   );
 
   // Body styles
@@ -56,21 +56,21 @@ class AppTextStyles {
     fontSize: 20.0,
     fontWeight: FontWeight.w600,
     color: AppColors.textPrimary,
-    fontFamily: 'ComicSans',
+    fontFamily: 'Digitalt',
   );
 
   static const TextStyle bodyMedium = TextStyle(
     fontSize: 16.0,
     fontWeight: FontWeight.w600,
     color: AppColors.textPrimary,
-    fontFamily: 'ComicSans',
+    fontFamily: 'Digitalt',
   );
 
   static const TextStyle bodySmall = TextStyle(
     fontSize: 14.0,
     fontWeight: FontWeight.w500,
     color: AppColors.textSecondary,
-    fontFamily: 'ComicSans',
+    fontFamily: 'Digitalt',
   );
 
   // Label styles
@@ -78,21 +78,21 @@ class AppTextStyles {
     fontSize: 18.0,
     fontWeight: FontWeight.w700,
     color: AppColors.textSecondary,
-    fontFamily: 'ComicSans',
+    fontFamily: 'Digitalt',
   );
 
   static const TextStyle labelMedium = TextStyle(
     fontSize: 16.0,
     fontWeight: FontWeight.w600,
     color: AppColors.textSecondary,
-    fontFamily: 'ComicSans',
+    fontFamily: 'Digitalt',
   );
 
   static const TextStyle labelSmall = TextStyle(
     fontSize: 14.0,
     fontWeight: FontWeight.w600,
     color: AppColors.textSecondary,
-    fontFamily: 'ComicSans',
+    fontFamily: 'Digitalt',
   );
   static const TextStyle labelverySmall = TextStyle(
     fontSize: 12.0,

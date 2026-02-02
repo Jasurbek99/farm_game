@@ -32,12 +32,24 @@ class AppStrings {
   static const String egg = 'EGG';
   static const String meat = 'MEAT';
   static const String silk = 'SILK';
+  static const String chicken = 'CHICKEN';
+  static const String cow = 'COW';
+  static const String pig = 'PIG';
+  static const String sheep = 'SHEEP';
 
   // Friends
   static const String friends = 'FRIENDS';
   static const String friendsList = 'FRIENDS LIST';
   static const String addFriends = 'ADD FRIENDS';
   static const String present = 'PRESENT';
+  static const String enterFriendId = 'Enter your friend\'s ID to add them';
+  static const String friendIdHint = 'Friend ID';
+  static const String addFriend = 'ADD FRIEND';
+  static const String addingFriend = 'Adding friend:';
+  static const String findFriends = 'FIND FRIENDS';
+  static const String suggestedFriends = 'Suggested Friends';
+  static const String visit = 'VISIT';
+  static const String add = 'ADD';
 
   // Profile
   static const String profile = 'PROFILE';

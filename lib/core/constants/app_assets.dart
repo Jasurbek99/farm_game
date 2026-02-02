@@ -54,6 +54,11 @@ class AppAssets {
   static const String coinIcon = 'assets/images/ui/coin_icon.png';
   static const String energyIcon = 'assets/images/ui/plus_icon.png';
   static const String plusIcon = 'assets/images/ui/plus_icon.png';
+  static const String tabButton = 'assets/images/decorations/tab_button.png';
+  static const String selectedTabButton =
+      'assets/images/decorations/selected_tab_button.png';
+  static const String balanceCard =
+      'assets/images/decorations/balance_card.png';
 
   // Bottom Nav Icons
   static const String navFarm = 'assets/images/nav/nav_farm.png';

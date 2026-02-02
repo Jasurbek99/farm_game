@@ -24,7 +24,10 @@ class _StoreScreenState extends State<StoreScreen> {
   @override
   Widget build(BuildContext context) {
     final repository = StoreRepositoryImpl(StoreLocalDatasource());
-    final items = repository.getItems();
+    final allItems = repository.getItems();
+    final items = allItems
+        .where((item) => item.category == _selectedCategory)
+        .toList();
 
     return AppScaffold(
       backgroundColor: AppColors.storeBackground,
@@ -87,7 +90,7 @@ class _StoreScreenState extends State<StoreScreen> {
                       child: _TabButton(
                         label: AppStrings.sell,
                         isSelected: _selectedTabIndex == 1,
-                        backgroundColor: AppColors.buttonBrown,
+                        backgroundColor: AppColors.buttonYellow,
                         onTap: () {
                           setState(() {
                             _selectedTabIndex = 1;
@@ -112,8 +115,9 @@ class _StoreScreenState extends State<StoreScreen> {
                             Expanded(
                               child: _CategoryButton(
                                 label: AppStrings.animal,
-                                isSelected: _selectedCategory == AppStrings.animal,
-                                backgroundColor: AppColors.buttonBrown,
+                                isSelected:
+                                    _selectedCategory == AppStrings.animal,
+                                backgroundColor: AppColors.buttonYellow,
                                 onTap: () {
                                   setState(() {
                                     _selectedCategory = AppStrings.animal;
@@ -125,7 +129,8 @@ class _StoreScreenState extends State<StoreScreen> {
                             Expanded(
                               child: _CategoryButton(
                                 label: AppStrings.product,
-                                isSelected: _selectedCategory == AppStrings.product,
+                                isSelected:
+                                    _selectedCategory == AppStrings.product,
                                 backgroundColor: AppColors.buttonYellow,
                                 onTap: () {
                                   setState(() {
@@ -140,19 +145,17 @@ class _StoreScreenState extends State<StoreScreen> {
                         // Items grid
                         Expanded(
                           child: GridView.builder(
-                            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2,
-                              crossAxisSpacing: AppDimens.paddingMd,
-                              mainAxisSpacing: AppDimens.paddingMd,
-                              childAspectRatio: 0.8,
-                            ),
+                            gridDelegate:
+                                const SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 2,
+                                  crossAxisSpacing: AppDimens.paddingMd,
+                                  mainAxisSpacing: AppDimens.paddingMd,
+                                  childAspectRatio: 0.8,
+                                ),
                             itemCount: items.length,
                             itemBuilder: (context, index) {
                               final item = items[index];
-                              return StoreItemCard(
-                                item: item,
-                                onTap: () {},
-                              );
+                              return StoreItemCard(item: item, onTap: () {});
                             },
                           ),
                         ),
@@ -186,21 +189,24 @@ class _TabButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: Container(
+      child: SizedBox(
         height: AppDimens.buttonHeightSmall,
-        decoration: BoxDecoration(
-          color: isSelected ? backgroundColor : AppColors.buttonBrown.withOpacity(0.5),
-          border: Border.all(
-            color: AppColors.panelBorder,
-            width: AppDimens.cardBorderWidth,
-          ),
-          borderRadius: BorderRadius.circular(AppDimens.radiusMd),
-        ),
-        child: Center(
-          child: Text(
-            label,
-            style: AppTextStyles.buttonMedium,
-          ),
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            // Button background image
+            Image.asset(
+              isSelected ? AppAssets.selectedTabButton : AppAssets.tabButton,
+              fit: BoxFit.fill,
+              width: double.infinity,
+              height: double.infinity,
+            ),
+            // Button text
+            Text(
+              label,
+              style: AppTextStyles.buttonMedium,
+            ),
+          ],
         ),
       ),
     );
@@ -224,21 +230,24 @@ class _CategoryButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: Container(
+      child: SizedBox(
         height: AppDimens.buttonHeightSmall,
-        decoration: BoxDecoration(
-          color: isSelected ? backgroundColor : AppColors.buttonBrown,
-          border: Border.all(
-            color: AppColors.panelBorder,
-            width: AppDimens.cardBorderWidth,
-          ),
-          borderRadius: BorderRadius.circular(AppDimens.radiusMd),
-        ),
-        child: Center(
-          child: Text(
-            label,
-            style: AppTextStyles.buttonMedium,
-          ),
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            // Button background image
+            Image.asset(
+              isSelected ? AppAssets.selectedTabButton : AppAssets.tabButton,
+              fit: BoxFit.fill,
+              width: double.infinity,
+              height: double.infinity,
+            ),
+            // Button text
+            Text(
+              label,
+              style: AppTextStyles.buttonMedium,
+            ),
+          ],
         ),
       ),
     );
