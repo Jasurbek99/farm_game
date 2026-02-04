@@ -15,7 +15,7 @@ class FarmBuildingCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BuildingCard(
-      buildingAsset: building.asset,
+      buildingAsset: building.localAsset,
       label: building.name,
       onTap: onTap,
     );

@@ -1,31 +1,53 @@
+import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:farm_game/core/constants/app_assets.dart';
 import 'package:farm_game/core/constants/app_colors.dart';
 import 'package:farm_game/core/constants/app_dimens.dart';
-import 'package:farm_game/core/constants/app_strings.dart';
-import 'package:farm_game/core/theme/app_text_styles.dart';
 import 'package:farm_game/core/widgets/app_scaffold.dart';
 import 'package:farm_game/features/farm/data/datasources/farm_local_datasource.dart';
 import 'package:farm_game/features/farm/data/repositories/farm_repository_impl.dart';
-import 'package:farm_game/features/farm/presentation/widgets/farm_building_card.dart';
+import 'package:farm_game/features/farm/game/farm_game.dart';
 
-class FarmMainScreen extends StatelessWidget {
+class FarmMainScreen extends StatefulWidget {
   const FarmMainScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  State<FarmMainScreen> createState() => _FarmMainScreenState();
+}
+
+class _FarmMainScreenState extends State<FarmMainScreen> {
+  late final FarmGame _farmGame;
+
+  @override
+  void initState() {
+    super.initState();
     final repository = FarmRepositoryImpl(FarmLocalDatasource());
     final buildings = repository.getBuildings();
 
+    _farmGame = FarmGame(
+      buildings: buildings,
+      onBuildingTap: (building) {
+        Navigator.pushNamed(context, building.route);
+      },
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return AppScaffold(
       backgroundColor: AppColors.farmBackground,
       backgroundAsset: AppAssets.farmBackground,
       safeAreaTop: false,
+      safeAreaBottom: false,
       safeAreaLeft: false,
       safeAreaRight: false,
       body: Stack(
         children: [
-          // Clouds
+          // Flame game with positioned buildings
+          Positioned.fill(
+            child: GameWidget(game: _farmGame),
+          ),
+          // Clouds overlay
           Positioned(
             top: 20,
             left: 0,
@@ -46,7 +68,7 @@ class FarmMainScreen extends StatelessWidget {
           ),
           // Profile button
           Positioned(
-            top: AppDimens.paddingMd,
+            top: AppDimens.paddingMd + MediaQuery.of(context).padding.top,
             left: AppDimens.paddingMd,
             child: GestureDetector(
               onTap: () {
@@ -71,51 +93,6 @@ class FarmMainScreen extends StatelessWidget {
                 ),
               ),
             ),
-          ),
-          // Content
-          Column(
-            children: [
-              const SizedBox(height: AppDimens.paddingLg),
-              // Title
-              Center(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(
-                      AppStrings.welcomeToFarm,
-                      style: AppTextStyles.titleLarge.copyWith(
-                        color: AppColors.primary,
-                        fontSize: 30,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                    const SizedBox(height: AppDimens.paddingSm),
-                  ],
-                ),
-              ),
-              const SizedBox(height: AppDimens.paddingLg),
-              // Buildings
-              Expanded(
-                child: SingleChildScrollView(
-                  padding: const EdgeInsets.all(AppDimens.paddingMd),
-                  child: Column(
-                    children: buildings.map((building) {
-                      return Padding(
-                        padding: const EdgeInsets.only(
-                          bottom: AppDimens.paddingLg,
-                        ),
-                        child: FarmBuildingCard(
-                          building: building,
-                          onTap: () {
-                            Navigator.pushNamed(context, building.route);
-                          },
-                        ),
-                      );
-                    }).toList(),
-                  ),
-                ),
-              ),
-            ],
           ),
         ],
       ),

@@ -36,6 +36,12 @@ dependencies:
   cupertino_icons: ^1.0.8
   provider: ^6.1.2
 
+  # Flame game engine for interactive farm map
+  flame: ^1.18.0
+
+  # Network image loading for backend GIFs
+  cached_network_image: ^3.3.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
