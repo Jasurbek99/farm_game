@@ -9,4 +9,8 @@ class FriendsRepositoryImpl {
   List<Friend> getFriends() {
     return _localDatasource.getFriends();
   }
+
+  List<Friend> getSuggestedFriends() {
+    return _localDatasource.getSuggestedFriends();
+  }
 }

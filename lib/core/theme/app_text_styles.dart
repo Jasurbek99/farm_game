@@ -24,7 +24,6 @@ class AppTextStyles {
 
   static const TextStyle titleSmall = TextStyle(
     fontSize: 24.0,
-
     color: AppColors.textPrimary,
     fontFamily: 'Digitalt',
   );

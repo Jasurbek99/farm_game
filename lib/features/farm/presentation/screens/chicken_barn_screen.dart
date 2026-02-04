@@ -21,6 +21,7 @@ class ChickenBarnScreen extends StatelessWidget {
 
     return AppScaffold(
       backgroundColor: AppColors.farmBackground,
+      backgroundAsset: AppAssets.chickenFarmBackground,
       safeAreaTop: false,
       safeAreaLeft: false,
       safeAreaRight: false,
@@ -50,9 +51,7 @@ class ChickenBarnScreen extends StatelessWidget {
             children: [
               const SizedBox(height: AppDimens.paddingMd),
               // Title
-              const TitleBanner(
-                title: AppStrings.chickenBarn,
-              ),
+              const TitleBanner(title: AppStrings.chickenBarn),
               const SizedBox(height: AppDimens.paddingMd),
               // Resource bars
               Padding(

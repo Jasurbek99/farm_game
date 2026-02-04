@@ -9,12 +9,15 @@ class AppDimens {
   static const double paddingXl = 32.0;
 
   // Cloud decoration offsets
-  static const double cloudTopLeftTop = 24.0;
+  static const double cloudTopLeftTop = 20.0;
   static const double cloudTopLeftLeft = 0.0;
   static const double cloudTopLeftWidth = 265.0;
-  static const double cloudTopRightTop = 52.0;
+  static const double cloudTopRightTop = 10.0;
   static const double cloudTopRightRight = 0.0;
   static const double cloudTopRightWidth = 255.0;
+
+  // Dividers
+  static const double dividerThickness = 2.0;
 
   // Border radius
   static const double radiusXs = 4.0;

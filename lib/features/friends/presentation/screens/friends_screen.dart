@@ -12,6 +12,8 @@ import 'package:farm_game/features/friends/domain/models/friend.dart';
 import 'package:farm_game/features/friends/presentation/widgets/friend_item.dart';
 import 'package:farm_game/features/friends/presentation/widgets/suggested_friend_item.dart';
 
+enum _FriendsTab { friendsList, addFriends }
+
 class FriendsScreen extends StatefulWidget {
   const FriendsScreen({super.key});
 
@@ -20,20 +22,41 @@ class FriendsScreen extends StatefulWidget {
 }
 
 class _FriendsScreenState extends State<FriendsScreen> {
-  int _selectedTabIndex = 0;
+  late final FriendsRepositoryImpl _repository;
+  late final List<Friend> _friends;
+  late final List<Friend> _suggestedFriends;
 
-  Widget _buildAddFriendsContent(List<Friend> suggestedFriends) {
+  _FriendsTab _selectedTab = _FriendsTab.friendsList;
+
+  @override
+  void initState() {
+    super.initState();
+    _repository = FriendsRepositoryImpl(FriendsLocalDatasource());
+    _friends = _repository.getFriends();
+    _suggestedFriends = _repository.getSuggestedFriends();
+  }
+
+  void _selectTab(_FriendsTab tab) {
+    if (_selectedTab == tab) return;
+    setState(() {
+      _selectedTab = tab;
+    });
+  }
+
+  void _showSnackBar(String message) {
+    ScaffoldMessenger.of(context)
+      ..hideCurrentSnackBar()
+      ..showSnackBar(SnackBar(content: Text(message)));
+  }
+
+  Widget _buildAddFriendsTab() {
     return Column(
       children: [
         // Find Friends button
         GestureDetector(
           onTap: () {
             // TODO: Implement find friends logic
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                content: Text('Finding friends...'),
-              ),
-            );
+            _showSnackBar(AppStrings.findingFriends);
           },
           child: Container(
             height: AppDimens.buttonHeight,
@@ -63,7 +86,7 @@ class _FriendsScreenState extends State<FriendsScreen> {
             const Expanded(
               child: Divider(
                 color: AppColors.panelBorder,
-                thickness: 2,
+                thickness: AppDimens.dividerThickness,
               ),
             ),
             Padding(
@@ -80,7 +103,7 @@ class _FriendsScreenState extends State<FriendsScreen> {
             const Expanded(
               child: Divider(
                 color: AppColors.panelBorder,
-                thickness: 2,
+                thickness: AppDimens.dividerThickness,
               ),
             ),
           ],
@@ -89,12 +112,11 @@ class _FriendsScreenState extends State<FriendsScreen> {
         // Suggested friends list
         Expanded(
           child: ListView.separated(
-            itemCount: suggestedFriends.length,
-            separatorBuilder: (context, index) => const SizedBox(
-              height: AppDimens.paddingSm,
-            ),
+            itemCount: _suggestedFriends.length,
+            separatorBuilder: (context, index) =>
+                const SizedBox(height: AppDimens.paddingSm),
             itemBuilder: (context, index) {
-              final friend = suggestedFriends[index];
+              final friend = _suggestedFriends[index];
               return SuggestedFriendItem(
                 friend: friend,
                 onVisitTap: () {
@@ -102,11 +124,7 @@ class _FriendsScreenState extends State<FriendsScreen> {
                 },
                 onAddTap: () {
                   // TODO: Implement add friend logic
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text('Adding ${friend.name}...'),
-                    ),
-                  );
+                  _showSnackBar('${AppStrings.addingFriend} ${friend.name}');
                 },
               );
             },
@@ -116,13 +134,20 @@ class _FriendsScreenState extends State<FriendsScreen> {
     );
   }
 
+  Widget _buildFriendsListTab() {
+    return ListView.separated(
+      itemCount: _friends.length,
+      separatorBuilder: (context, index) =>
+          const SizedBox(height: AppDimens.paddingMd),
+      itemBuilder: (context, index) {
+        final friend = _friends[index];
+        return FriendItem(friend: friend, onPresentTap: () {});
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    final datasource = FriendsLocalDatasource();
-    final repository = FriendsRepositoryImpl(datasource);
-    final friends = repository.getFriends();
-    final suggestedFriends = datasource.getSuggestedFriends();
-
     return AppScaffold(
       backgroundColor: AppColors.friendsBackground,
       safeAreaTop: false,
@@ -132,8 +157,8 @@ class _FriendsScreenState extends State<FriendsScreen> {
         children: [
           // Clouds
           Positioned(
-            top: 20,
-            left: 0,
+            top: AppDimens.cloudTopLeftTop,
+            left: AppDimens.cloudTopLeftLeft,
             child: Image.asset(
               AppAssets.cloudLeft,
               fit: BoxFit.none,
@@ -141,8 +166,8 @@ class _FriendsScreenState extends State<FriendsScreen> {
             ),
           ),
           Positioned(
-            top: 10,
-            right: 0,
+            top: AppDimens.cloudTopRightTop,
+            right: AppDimens.cloudTopRightRight,
             child: Image.asset(
               AppAssets.cloudRight,
               fit: BoxFit.none,
@@ -173,25 +198,19 @@ class _FriendsScreenState extends State<FriendsScreen> {
                             Expanded(
                               child: _TabButton(
                                 label: AppStrings.friendsList,
-                                isSelected: _selectedTabIndex == 0,
-                                onTap: () {
-                                  setState(() {
-                                    _selectedTabIndex = 0;
-                                  });
-                                },
+                                isSelected:
+                                    _selectedTab == _FriendsTab.friendsList,
+                                onTap: () =>
+                                    _selectTab(_FriendsTab.friendsList),
                               ),
                             ),
                             const SizedBox(width: AppDimens.paddingMd),
                             Expanded(
                               child: _TabButton(
                                 label: AppStrings.addFriends,
-                                isSelected: _selectedTabIndex == 1,
-                                backgroundColor: AppColors.buttonBrown,
-                                onTap: () {
-                                  setState(() {
-                                    _selectedTabIndex = 1;
-                                  });
-                                },
+                                isSelected:
+                                    _selectedTab == _FriendsTab.addFriends,
+                                onTap: () => _selectTab(_FriendsTab.addFriends),
                               ),
                             ),
                           ],
@@ -199,22 +218,9 @@ class _FriendsScreenState extends State<FriendsScreen> {
                         const SizedBox(height: AppDimens.paddingMd),
                         // Content based on selected tab
                         Expanded(
-                          child: _selectedTabIndex == 0
-                              ? ListView.separated(
-                                  itemCount: friends.length,
-                                  separatorBuilder: (context, index) =>
-                                      const SizedBox(
-                                    height: AppDimens.paddingMd,
-                                  ),
-                                  itemBuilder: (context, index) {
-                                    final friend = friends[index];
-                                    return FriendItem(
-                                      friend: friend,
-                                      onPresentTap: () {},
-                                    );
-                                  },
-                                )
-                              : _buildAddFriendsContent(suggestedFriends),
+                          child: _selectedTab == _FriendsTab.friendsList
+                              ? _buildFriendsListTab()
+                              : _buildAddFriendsTab(),
                         ),
                       ],
                     ),
@@ -232,13 +238,11 @@ class _FriendsScreenState extends State<FriendsScreen> {
 class _TabButton extends StatelessWidget {
   final String label;
   final bool isSelected;
-  final Color? backgroundColor;
   final VoidCallback onTap;
 
   const _TabButton({
     required this.label,
     required this.isSelected,
-    this.backgroundColor,
     required this.onTap,
   });
 

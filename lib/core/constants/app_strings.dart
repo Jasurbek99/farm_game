@@ -13,10 +13,10 @@ class AppStrings {
   // Farm
   static const String welcomeToFarm = 'WELCOME\nTO FARM';
   static const String welcomeFarmTitle = 'WELCOME TO';
-  static const String chickenBarn = 'CHICKEN \n BARN';
-  static const String sheepBarn = 'SHEEP\n BARN';
-  static const String cowBarn = 'COW\n BARN';
-  static const String pigBarn = 'PIG\n BARN';
+  static const String chickenBarn = 'CHICKEN\nBARN';
+  static const String sheepBarn = 'SHEEP\nBARN';
+  static const String cowBarn = 'COW\nBARN';
+  static const String pigBarn = 'PIG\nBARN';
 
   // Factory
   static const String welcomeToFactory = 'WELCOME\nTO FACTORY';
@@ -46,6 +46,7 @@ class AppStrings {
   static const String friendIdHint = 'Friend ID';
   static const String addFriend = 'ADD FRIEND';
   static const String addingFriend = 'Adding friend:';
+  static const String findingFriends = 'Finding friends...';
   static const String findFriends = 'FIND FRIENDS';
   static const String suggestedFriends = 'Suggested Friends';
   static const String visit = 'VISIT';

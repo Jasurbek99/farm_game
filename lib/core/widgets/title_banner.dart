@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:farm_game/core/constants/app_colors.dart';
+import 'package:farm_game/core/constants/app_assets.dart';
 import 'package:farm_game/core/constants/app_dimens.dart';
+import 'package:flutter/material.dart';
 import 'package:farm_game/core/theme/app_text_styles.dart';
 
 class TitleBanner extends StatelessWidget {
@@ -12,21 +12,19 @@ class TitleBanner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(
-        horizontal: AppDimens.paddingLg,
-        vertical: AppDimens.paddingMd,
-      ),
+      margin: const EdgeInsets.only(top: AppDimens.paddingLg),
+      padding: const EdgeInsets.only(top: AppDimens.paddingLg),
+      width: AppDimens.inventorySlotSize,
+      alignment: Alignment.center,
       decoration: BoxDecoration(
-        color: AppColors.panelBorder,
-        border: Border.all(
-          color: AppColors.panelBorder,
-          width: AppDimens.cardBorderWidth,
+        image: DecorationImage(
+          image: AssetImage(AppAssets.nameCard),
+          fit: BoxFit.contain,
         ),
-        borderRadius: BorderRadius.circular(AppDimens.radiusMd),
       ),
       child: Text(
         title,
-        style: textStyle ?? AppTextStyles.titleMedium,
+        style: (textStyle ?? AppTextStyles.titleSmall).copyWith(height: 0.9),
         textAlign: TextAlign.center,
       ),
     );

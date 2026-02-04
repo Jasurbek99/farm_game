@@ -31,7 +31,7 @@ class AppColors {
   static const Color toggleTrackOff = Color(0xFF9E9E9E);
 
   // Text colors
-  static const Color textPrimary = Color(0xFF4A3728);
+  static const Color textPrimary = Color(0xFFB16729);
   static const Color textSecondary = Color(0xFFC16F38);
   static const Color textWhite = Color(0xFFFFFFFF);
   static const Color textLight = Color(0xFFFFF8DC);

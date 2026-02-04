@@ -12,6 +12,8 @@ class AppAssets {
       'assets/images/backgrounds/friends_background.png';
   static const String profileBackground =
       'assets/images/backgrounds/profile_background.png';
+  static const String chickenFarmBackground =
+      'assets/images/backgrounds/chicken_farm_background.png';
 
   // Clouds
   static const String cloud1 = 'assets/images/decorations/cloud_1.png';
@@ -74,8 +76,10 @@ class AppAssets {
   static const String supportIcon = 'assets/images/profile/support_icon.png';
   static const String privacyIcon = 'assets/images/profile/privacy_icon.png';
   //new profile assets
-  static const String profileIconCard = 'assets/images/profile/profile_icon_card.png';
-  static const String profileNameCard = 'assets/images/profile/profile_name_card.png';
-  static const String profileItemsCard = 'assets/images/profile/profile_items_card.png';
-
+  static const String profileIconCard =
+      'assets/images/profile/profile_icon_card.png';
+  static const String profileNameCard =
+      'assets/images/profile/profile_name_card.png';
+  static const String profileItemsCard =
+      'assets/images/profile/profile_items_card.png';
 }
