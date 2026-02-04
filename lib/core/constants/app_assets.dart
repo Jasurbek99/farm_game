@@ -32,6 +32,28 @@ class AppAssets {
   static const String cakeFactoryLarge =
       'assets/images/buildings/cake_factory_large.png';
 
+  // Factory Map
+  static const String factoryMapEmpty =
+      'assets/images/factory/factory_map_empty.png';
+  static const String factoryMapWithBuildings =
+      'assets/images/factory/factory_map_with_buildings.png';
+
+  // Factory Buildings (individual building assets for the map)
+  static const String factoryBbqStation =
+      'assets/images/factory/bbq_station.png';
+  static const String factoryMeatShop =
+      'assets/images/factory/meat_shop.png';
+  static const String factorySugarMill =
+      'assets/images/factory/sugar_mill.png';
+  static const String factoryDairyFactory =
+      'assets/images/factory/dairy_factory.png';
+  static const String factoryBakery =
+      'assets/images/factory/bakery.png';
+  static const String factoryIceCreamShop =
+      'assets/images/factory/ice_cream_shop.png';
+  static const String factoryWeavingMill =
+      'assets/images/factory/weaving_mill.png';
+
   // Animals
   static const String chicken = 'assets/images/animals/chicken.png';
   static const String sheep = 'assets/images/animals/sheep.png';

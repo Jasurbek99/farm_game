@@ -68,6 +68,7 @@ flutter:
     - assets/images/ui/
     - assets/images/nav/
     - assets/images/profile/
+    - assets/images/factory/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

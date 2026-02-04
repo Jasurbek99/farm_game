@@ -23,6 +23,15 @@ class AppStrings {
   static const String cakeFactory = 'CAKE\n FACTORY';
   static const String makeCake = 'MAKE CAKE';
 
+  // Factory Buildings
+  static const String bbqStation = 'BBQ\nSTATION';
+  static const String meatShop = 'MEAT\nSHOP';
+  static const String sugarMill = 'SUGAR\nMILL';
+  static const String dairyFactory = 'DAIRY\nFACTORY';
+  static const String bakery = 'BAKERY';
+  static const String iceCreamShop = 'ICE CREAM\nSHOP';
+  static const String weavingMill = 'WEAVING\nMILL';
+
   // Store
   static const String store = 'STORE';
   static const String buy = 'BUY';

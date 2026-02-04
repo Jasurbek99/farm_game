@@ -14,6 +14,13 @@ class AppRoutes {
   static const String farmCow = '/farm/cow';
   static const String farmPig = '/farm/pig';
   static const String factoryCake = '/factory/cake';
+  static const String factoryBbq = '/factory/bbq';
+  static const String factoryMeat = '/factory/meat';
+  static const String factorySugar = '/factory/sugar';
+  static const String factoryDairy = '/factory/dairy';
+  static const String factoryBakery = '/factory/bakery';
+  static const String factoryIceCream = '/factory/ice_cream';
+  static const String factoryWeaving = '/factory/weaving';
   static const String profile = '/profile';
   static const String profileChangePassword = '/profile/change-password';
   static const String profileLanguage = '/profile/language';
@@ -26,6 +33,14 @@ class AppRoutes {
       farmCow: (context) => const ChickenBarnScreen(),
       farmPig: (context) => const ChickenBarnScreen(),
       factoryCake: (context) => const CakeFactoryScreen(),
+      // TODO: Create individual factory screens for each building
+      factoryBbq: (context) => const CakeFactoryScreen(),
+      factoryMeat: (context) => const CakeFactoryScreen(),
+      factorySugar: (context) => const CakeFactoryScreen(),
+      factoryDairy: (context) => const CakeFactoryScreen(),
+      factoryBakery: (context) => const CakeFactoryScreen(),
+      factoryIceCream: (context) => const CakeFactoryScreen(),
+      factoryWeaving: (context) => const CakeFactoryScreen(),
       profile: (context) => const ProfileScreen(),
       profileChangePassword: (context) => const ChangePasswordScreen(),
       profileLanguage: (context) => const LanguageScreen(),
